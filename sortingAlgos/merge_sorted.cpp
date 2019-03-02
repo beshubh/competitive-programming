@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+
 void merge(int *arr, int s, int mid, int e){
     int i = s;
     int j = mid + 1;
@@ -34,6 +35,9 @@ void merge_sort(int *arr,int s,int e){
     merge_sort(arr, mid + 1,e);
     merge(arr, s, mid, e);
 }
+void mergeSort(int input[], int size){
+	merge_sort(input, 0 , size - 1);
+}
 int main(){
     int n;
     cin >> n;
@@ -41,7 +45,7 @@ int main(){
     for(int i = 0; i < n; i++){
         cin >> arr[i];
     }
-    merge_sort(arr,0,n-1);
+    mergeSort(arr,n);
     for(int i = 0; i < n; i++){
         cout << arr[i] << " ";
     }
