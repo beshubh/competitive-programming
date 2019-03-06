@@ -31,6 +31,9 @@ void quickSort(int *arr, int size){
     quicksort(arr, 0, size - 1);
 }
 int main(){
+    int a[10];
+
+
     int size_of_array = 0;
     cin >> size_of_array;
     int *arr = new int[size_of_array];
