@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Act",
+            "request": "launch",
+            "mainClass": "Greedy.Act",
+            "projectName": "problems_8192bd8"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - main",
+            "request": "launch",
+            "mainClass": "Greedy.main",
+            "projectName": "problems_8192bd8"
+        }
+    ]
+}
