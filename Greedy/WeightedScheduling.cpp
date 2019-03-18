@@ -10,30 +10,48 @@ bool compare(item a, item b)
 {
     return a.f < b.f;
 }
+int binarySearch(item arr[], int index)
+{
+    int lo = 0;
+    int hi = index - 1;
+    while (lo <= hi)
+    {
+        int mid = (lo + hi) / 2;
+        if (arr[mid].f <= arr[index].s)
+        {
+            if (arr[mid + 1].f <= arr[index].s)
+            {
+                lo = mid + 1;
+            }
+            else
+            {
+                return mid;
+            }
+        }
+        else
+        {
+            hi = mid - 1;
+        }
+    }
+    return -1;
+}
 int findProfit(item arr[], int n)
 {
     int *dp = new int[n];
     dp[0] = arr[0].p;
     for (int i = 1; i < n; i++)
     {
-    
+
         int including = arr[i].p;
-        int latestNonConflictingActivityIndex = -1;
-        for (int j = i - 1; j >= 0; j--)
+        int latestNonConflictingActivityIndex = binarySearch(arr, i);
+        if (latestNonConflictingActivityIndex != -1)
         {
-            if (arr[j].f <= arr[i].s)
-            {
-                latestNonConflictingActivityIndex = j;
-                break;
-            }
-        }
-        if(latestNonConflictingActivityIndex != -1){
             including += dp[latestNonConflictingActivityIndex];
         }
         dp[i] = max(including, dp[i - 1]);
     }
     int ans = dp[n - 1];
-    delete [] dp;
+    delete[] dp;
     return ans;
 }
 int main()
@@ -50,4 +68,5 @@ int main()
     sort(arr, arr + n, compare);
     int profit = findProfit(arr, n);
     cout << profit << endl;
+    return 0;
 }
