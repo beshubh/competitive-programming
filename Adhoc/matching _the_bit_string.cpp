@@ -18,8 +18,6 @@ int main()
                 cost++;
                 i++;
             }
-            
-
         }
         else
         {
