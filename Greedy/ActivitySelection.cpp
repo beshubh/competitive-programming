@@ -26,7 +26,7 @@ int main(){
      for(int i = 0; i < n; i++)
     {
         cout << activity[i].start <<" "<< activity[i].end << endl;
-    }
+    }g
     
     int res = 1;
     int track =  activity[0].end;
