@@ -3,18 +3,18 @@
 using namespace std;
 int main()
 {
-    int n;
+    long long n;
     cin >> n;
-    int k;
+    long long k;
     cin >> k;
-    int *arr  = new int[n]();
+    long long *arr  = new long long[n]();
     for(int i = 0; i < n; i++)
     {
         cin >> arr[i];
     } 
     sort(arr, arr + n);
-    int un1 = 0;
-    int un2 = 0;
+    long long un1 = 0;
+    long long un2 = 0;
     for(int i = 0; i< k; i++)
     {
         for(int j = i; j < k; j++)
@@ -22,10 +22,10 @@ int main()
             un1 += abs(arr[i] - arr[j]);
         }
     }
-    int * dp = new int[k]();
+    long long * dp = new long long[k]();
     dp[0] = 0;
     dp[1] = abs(arr[0] - arr[1]);
-    int sum = arr[0] + arr[1];
+    long long sum = arr[0] + arr[1];
     for(int i = 2; i<k; i++)
     {
         dp[i] = dp[i - 1] + i * arr[i] - sum;

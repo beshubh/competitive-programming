@@ -37,7 +37,7 @@ int main()
     {
         dp[arr[i]]++;
     }
-    resdp[1000000] = dp[000000];
+    resdp[1000000] = dp[1000000];
     for (int i = 1000000 - 1; i > 0; i--)
     {
         resdp[i] = dp[i] + resdp[i + 1];
