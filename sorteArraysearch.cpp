@@ -95,5 +95,42 @@ bool co_primes(int a, int b)
 }
 int main(int argc, char const *argv[])
 {
-  
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    int target;
+    cin >> target;
+    int low = 0;
+    int high = n - 1;
+    int k = -1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        // cout << arr[mid] << "\n";
+        if(arr[mid] == target)
+        {
+            k = mid;
+            break;
+        }
+        if(arr[0] <= arr[mid])//left part is sorted
+        {
+            if(arr[0] <= target && target < arr[mid])
+                high = mid - 1;
+            else
+                low = mid + 1;
+        }    
+        else{
+            if(arr[mid] < target && target <= arr[n - 1])
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+
+    }
+    cout << k << endl;
 }
+
